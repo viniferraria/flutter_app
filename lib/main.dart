@@ -38,7 +38,7 @@ class RandomWordsState extends State<RandomWords> {
         appBar: AppBar(
           title: Text('Startup Name Generator'),
           actions: <Widget>[
-            IconButton(icon: Icon(Icons.list), onPressed: _pushSaved),
+            IconButton(icon: Icon(Icons.view_list), onPressed: _pushSaved),
           ],
       ),
       body: _buildSuggestions(),
@@ -48,7 +48,7 @@ class RandomWordsState extends State<RandomWords> {
   
     final List<WordPair> _suggestions = <WordPair>[];
     final Set<WordPair> _saved = Set<WordPair>();
-    final TextStyle _biggerFont = const TextStyle(fontSize: 18.0);
+    final TextStyle _biggerFont = const TextStyle(fontSize: 12.0);
       
     void _pushSaved(){
       Navigator.of(context).push(
@@ -72,7 +72,7 @@ class RandomWordsState extends State<RandomWords> {
               .toList();
             
             return Scaffold(
-              backgroundColor: Colors.grey,
+              backgroundColor: Colors.green,
               appBar: AppBar(
               title: Text('Saved Suggestions'),
             ),
@@ -111,7 +111,7 @@ class RandomWordsState extends State<RandomWords> {
       return ListView.builder(
         padding: const EdgeInsets.all(16.0),
         itemBuilder: (context, i){
-          if (i.isOdd) return Divider();
+          // if (i.isOdd) return Divider();
 
           final index = i ~/ 2; 
           if (index >= _suggestions.length){
